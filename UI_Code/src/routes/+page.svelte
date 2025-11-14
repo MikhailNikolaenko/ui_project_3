@@ -1,32 +1,51 @@
 <script>
     import TopBar from "$lib/components/TopBar.svelte";
-    import SideFilters from "$lib/components/SideFilters.svelte";
+    import CategoryList from "$lib/components/CategoryList.svelte";
     import ListingGrid from "$lib/components/ListingGrid.svelte";
+    import SideFiltersRight from "$lib/components/SideFiltersRight.svelte";
 
-    let filtersOpen = true;
+    let filtersOpen = false;
 </script>
 
 <style>
-.layout {
+.page {
     display: grid;
     grid-template-columns: auto 1fr;
 }
-.toggle {
+
+.filterButton {
     position: fixed;
-    left: 10px;
-    top: 80px;
-    z-index: 20;
+    top: 75px;
+    right: 20px;
+    z-index: 100; 
+    background: black;
+    color: white;
+    border-radius: 8px;
+    padding: 0.4rem 0.8rem;
+    transition: all 0.25s ease;
 }
+
+.shifted {
+    right: 330px;      /* moves left when panel is open */
+    opacity: 0.85;     /* slight fade for modern feel */
+}
+
 </style>
 
 <TopBar />
 
-<button class="toggle" on:click={() => (filtersOpen = !filtersOpen)}>
-    Filters
+<!-- Filters button (top right) -->
+<button 
+    class="filterButton {filtersOpen ? 'shifted' : ''}" 
+    on:click={() => (filtersOpen = !filtersOpen)}
+>
+    {filtersOpen ? "Close" : "Filters"}
 </button>
 
-<div class="layout">
-    <SideFilters open={filtersOpen} />
+
+<SideFiltersRight open={filtersOpen} />
+
+<div class="page">
+    <CategoryList />
     <ListingGrid />
 </div>
-

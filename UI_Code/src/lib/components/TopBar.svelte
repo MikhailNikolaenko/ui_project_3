@@ -1,21 +1,39 @@
 <script>
+    import cities from "$lib/data/us_cities.json";
     import { filters } from "$lib/stores/listings";
-    import { onMount } from "svelte";
 
-    let collapsed = false;
+    // Extract unique states
+    const states = [...new Set(cities.map(c => c.state_id))].sort();
 
-    // collapse when user scrolls down
-    onMount(() => {
-        let lastY = 0;
+    let selectedState = "";
+    let cityList = [];
 
-        window.addEventListener("scroll", () => {
-            const current = window.scrollY;
-            collapsed = current > lastY && current > 60;
-            lastY = current;
-        });
-    });
+    function onSelectState(e) {
+        selectedState = e.target.value;
 
-    function updateSearch(e) {
+        // Update the list of cities for this state
+        cityList = cities
+            .filter(c => c.state_id === selectedState)
+            .map(c => c.city)
+            .sort();
+
+        // Clear city filter if state changes
+        filters.update(f => ({
+            ...f,
+            location: ""
+        }));
+    }
+
+    function onSelectCity(e) {
+        const city = e.target.value;
+
+        filters.update(f => ({
+            ...f,
+            location: city
+        }));
+    }
+
+    function onSearchInput(e) {
         filters.update(f => ({ ...f, search: e.target.value }));
     }
 </script>
@@ -27,25 +45,42 @@
     background: white;
     padding: 1rem;
     border-bottom: 1px solid #ddd;
-    transition: all 0.25s ease;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
 }
-
-.collapsed {
-    padding: 0.4rem 1rem;
-    opacity: 0.9;
+.select {
+    padding: 0.4rem;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 0.9rem;
 }
 </style>
 
-<div class="topbar {collapsed ? 'collapsed' : ''}">
-    <div class="flex items-center gap-4">
-        <input placeholder="Location…" on:input="{e => filters.update(f => ({ ...f, location: e.target.value }))}">
-        
-        <select on:change="{e => filters.update(f => ({ ...f, category: e.target.value }))}">
-            <option value="">All Categories</option>
-            <option value="Electronics">Electronics</option>
-            <option value="Cars">Cars</option>
-        </select>
+<div class="topbar">
 
-        <input placeholder="Search…" on:input="{updateSearch}" />
-    </div>
+    <!-- STATE SELECT -->
+    <select class="select" on:change={onSelectState}>
+        <option value="">Select State</option>
+        {#each states as st}
+            <option value={st}>{st}</option>
+        {/each}
+    </select>
+
+    <!-- CITY SELECT -->
+    <select class="select" on:change={onSelectCity} disabled={!selectedState}>
+        <option value="">Select City</option>
+        {#each cityList as city}
+            <option value={city}>{city}</option>
+        {/each}
+    </select>
+
+    <!-- Search bar -->
+    <input
+        type="text"
+        class="select"
+        placeholder="Search listings…"
+        on:input={onSearchInput}
+    />
+
 </div>
