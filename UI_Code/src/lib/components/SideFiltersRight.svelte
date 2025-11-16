@@ -76,5 +76,22 @@ input:focus {
         <input type="number"
             on:input="{e => filters.update(f => ({ ...f, yearMax: +e.target.value }))}">
     </div>
+    
+        <div class="field">
+            <label>Condition</label>
+            <select class="select" on:change="{e => filters.update(f => ({ ...f, condition: e.target.value }))}">
+                <option value="">Any</option>
+                <option value="New">New</option>
+                <option value="Like New">Like New</option>
+                <option value="Good">Good</option>
+                <option value="Fair">Fair</option>
+                <option value="For parts">For parts</option>
+            </select>
+        </div>
+    
+        <div class="field checkbox">
+            <input id="neg" type="checkbox" on:change="{e => filters.update(f => ({ ...f, negotiableOnly: e.target.checked }))}" />
+            <label for="neg">Negotiable only</label>
+        </div>
 
 </div>

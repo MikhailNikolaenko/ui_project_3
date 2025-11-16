@@ -4,6 +4,8 @@ export const listings = writable([
     {
         id: 1,
         title: "iPhone 13",
+        condition: "Like New",
+        negotiable: true,
         price: 450,
         location: "Cincinnati",
         year: 2021,
@@ -13,6 +15,8 @@ export const listings = writable([
     {
         id: 2,
         title: "Honda Civic",
+        condition: "Good",
+        negotiable: false,
         price: 8500,
         location: "Cincinnati",
         year: 2015,
@@ -22,6 +26,8 @@ export const listings = writable([
     {
         id: 3,
         title: "Samsung 32\" TV",
+        condition: "Good",
+        negotiable: true,
         price: 320,
         location: "Cincinnati",
         year: 2019,
@@ -31,6 +37,8 @@ export const listings = writable([
     {
         id: 4,
         title: "MacBook Pro 16\"",
+        condition: "Like New",
+        negotiable: false,
         price: 1200,
         location: "Cincinnati",
         year: 2020,
@@ -40,6 +48,8 @@ export const listings = writable([
     {
         id: 5,
         title: "Nissan Altima",
+        condition: "Fair",
+        negotiable: true,
         price: 6700,
         location: "Cincinnati",
         year: 2014,
@@ -49,6 +59,8 @@ export const listings = writable([
     {
         id: 6,
         title: "Dining Table Set",
+        condition: "Good",
+        negotiable: false,
         price: 250,
         location: "Cincinnati",
         year: 2018,
@@ -58,6 +70,8 @@ export const listings = writable([
     {
         id: 7,
         title: "Gaming PC (RTX 3050)",
+        condition: "Like New",
+        negotiable: true,
         price: 900,
         location: "Cincinnati",
         year: 2022,
@@ -67,6 +81,8 @@ export const listings = writable([
     {
         id: 8,
         title: "Mountain Bike",
+        condition: "Good",
+        negotiable: false,
         price: 180,
         location: "Cincinnati",
         year: 2020,
@@ -76,6 +92,8 @@ export const listings = writable([
     {
         id: 9,
         title: "Sofa – 3 Seater",
+        condition: "Fair",
+        negotiable: true,
         price: 350,
         location: "Cincinnati",
         year: 2019,
@@ -85,6 +103,8 @@ export const listings = writable([
     {
         id: 10,
         title: "Nintendo Switch",
+        condition: "Good",
+        negotiable: false,
         price: 220,
         location: "Cincinnati",
         year: 2021,
@@ -94,6 +114,8 @@ export const listings = writable([
     {
         id: 11,
         title: "Dell XPS 13 Laptop",
+        condition: "Good",
+        negotiable: true,
         price: 650,
         location: "Cincinnati",
         year: 2020,
@@ -103,6 +125,8 @@ export const listings = writable([
     {
         id: 12,
         title: "Ford F-150",
+        condition: "Fair",
+        negotiable: false,
         price: 14500,
         location: "Cincinnati",
         year: 2012,
@@ -112,6 +136,8 @@ export const listings = writable([
     {
         id: 13,
         title: "Apple Watch Series 4",
+        condition: "Good",
+        negotiable: true,
         price: 260,
         location: "Cincinnati",
         year: 2021,
@@ -121,6 +147,8 @@ export const listings = writable([
     {
         id: 14,
         title: "Canon EOS Rebel T7",
+        condition: "Good",
+        negotiable: false,
         price: 350,
         location: "Cincinnati",
         year: 2020,
@@ -130,6 +158,8 @@ export const listings = writable([
     {
         id: 15,
         title: "Queen Bed Frame",
+        condition: "Good",
+        negotiable: true,
         price: 120,
         location: "Cincinnati",
         year: 2018,
@@ -139,6 +169,8 @@ export const listings = writable([
     {
         id: 16,
         title: "Black Bookshelf",
+        condition: "Good",
+        negotiable: false,
         price: 60,
         location: "Cincinnati",
         year: 2019,
@@ -148,6 +180,8 @@ export const listings = writable([
     {
         id: 17,
         title: "PlayStation 5",
+        condition: "Like New",
+        negotiable: true,
         price: 450,
         location: "Cincinnati",
         year: 2021,
@@ -157,6 +191,8 @@ export const listings = writable([
     {
         id: 18,
         title: "Beach Kayak",
+        condition: "Good",
+        negotiable: false,
         price: 300,
         location: "Cincinnati",
         year: 2020,
@@ -166,6 +202,8 @@ export const listings = writable([
     {
         id: 19,
         title: "Apple AirPods Pro",
+        condition: "Good",
+        negotiable: true,
         price: 140,
         location: "Cincinnati",
         year: 2022,
@@ -175,6 +213,8 @@ export const listings = writable([
     {
         id: 20,
         title: "2009 Toyota Camry",
+        condition: "Fair",
+        negotiable: false,
         price: 7800,
         location: "Cincinnati",
         year: 2013,
@@ -184,6 +224,8 @@ export const listings = writable([
     {
         id: 21,
         title: "Vintage Office Chair",
+        condition: "Good",
+        negotiable: true,
         price: 95,
         location: "Cincinnati",
         year: 2021,
@@ -193,6 +235,8 @@ export const listings = writable([
     {
         id: 22,
         title: "Lenovo ThinkPad 14in",
+        condition: "Good",
+        negotiable: false,
         price: 540,
         location: "Cincinnati",
         year: 2020,
@@ -202,6 +246,8 @@ export const listings = writable([
     {
         id: 23,
         title: "Samsung Galaxy S22",
+        condition: "Like New",
+        negotiable: true,
         price: 500,
         location: "Cincinnati",
         year: 2022,
@@ -211,6 +257,8 @@ export const listings = writable([
     {
         id: 24,
         title: "Road Bicycle",
+        condition: "Good",
+        negotiable: false,
         price: 260,
         location: "Cincinnati",
         year: 2019,
@@ -220,6 +268,8 @@ export const listings = writable([
     {
         id: 25,
         title: "Xbox Series X",
+        condition: "Like New",
+        negotiable: true,
         price: 420,
         location: "Cincinnati",
         year: 2021,
@@ -229,6 +279,8 @@ export const listings = writable([
     {
         id: 26,
         title: "KitchenAid Mixer",
+        condition: "Good",
+        negotiable: false,
         price: 180,
         location: "Cincinnati",
         year: 2018,
@@ -238,6 +290,8 @@ export const listings = writable([
     {
         id: 27,
         title: "Pet Crate",
+        condition: "Good",
+        negotiable: true,
         price: 45,
         location: "Cincinnati",
         year: 2020,
@@ -247,6 +301,8 @@ export const listings = writable([
     {
         id: 28,
         title: "Treadmill – Foldable",
+        condition: "Fair",
+        negotiable: false,
         price: 300,
         location: "Cincinnati",
         year: 2019,
@@ -256,6 +312,8 @@ export const listings = writable([
     {
         id: 29,
         title: "Leather Jacket (Men’s)",
+        condition: "Good",
+        negotiable: true,
         price: 75,
         location: "Cincinnati",
         year: 2021,
@@ -265,6 +323,8 @@ export const listings = writable([
     {
         id: 30,
         title: "Subaru Outback 2015",
+        condition: "Fair",
+        negotiable: false,
         price: 9600,
         location: "Cincinnati",
         year: 2014,
@@ -274,6 +334,9 @@ export const listings = writable([
     // Add more sample data later…
 ]);
 
+// UI state: global sort key for listing grid
+export const sortKey = writable('relevance');
+
 // user filters
 export const filters = writable({
     search: "",
@@ -282,7 +345,9 @@ export const filters = writable({
     minPrice: 0,
     maxPrice: 999999,
     yearMin: 1980,
-    yearMax: 2030
+    yearMax: 2030,
+    condition: "",
+    negotiableOnly: false
 });
 
 // derived filtered data
@@ -307,12 +372,20 @@ export const filteredListings = derived(
                 item.year >= $filters.yearMin &&
                 item.year <= $filters.yearMax;
 
+            const matchesCondition =
+                !$filters.condition || (item.condition && item.condition === $filters.condition);
+
+            const matchesNegotiable =
+                !$filters.negotiableOnly || (item.negotiable === true);
+
             return (
                 matchesSearch &&
                 matchesCategory &&
                 matchesLocation &&
                 matchesPrice &&
                 matchesYear
+                && matchesCondition
+                && matchesNegotiable
             );
         });
     }

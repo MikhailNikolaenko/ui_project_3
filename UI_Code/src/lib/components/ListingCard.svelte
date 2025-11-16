@@ -52,6 +52,18 @@
     box-shadow: 0 2px 6px rgba(0,0,0,0.08);
 }
 
+.price-badge .negotiable-inline {
+    margin-left: 0.45rem;
+    background: rgba(255,255,255,0.9);
+    padding: 0.08rem 0.35rem;
+    border-radius: 999px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: #333;
+    border: 1px solid rgba(0,0,0,0.06);
+    opacity: 0.9;
+}
+
 /* Title */
 .title {
     margin-top: 0.65rem;
@@ -66,6 +78,12 @@
     font-size: 0.82rem;
     color: #666;
 }
+
+.condition {
+    margin-left: 0.35rem;
+    font-weight: 600;
+    color: #444;
+}
 </style>
 
 <div class="card">
@@ -75,6 +93,9 @@
 
         <div class="price-badge">
             ${item.price}
+            {#if item.negotiable}
+                <span class="negotiable-inline" title="Price is negotiable">Negotiable</span>
+            {/if}
         </div>
     </div>
 
@@ -82,6 +103,9 @@
 
     <div class="meta">
         {item.location} • {item.year}
+        {#if item.condition}
+            <span class="condition">• {item.condition}</span>
+        {/if}
     </div>
 
 </div>

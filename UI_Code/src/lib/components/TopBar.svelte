@@ -1,6 +1,7 @@
 <script>
     import cities from "$lib/data/us_cities.json";
     import { filters } from "$lib/stores/listings";
+    import { sortKey } from "$lib/stores/listings";
 
     // Extract unique states
     const states = [...new Set(cities.map(c => c.state_id))].sort();
@@ -35,6 +36,10 @@
 
     function onSearchInput(e) {
         filters.update(f => ({ ...f, search: e.target.value }));
+    }
+
+    function onSortChange(e) {
+        sortKey.set(e.target.value);
     }
 </script>
 
@@ -82,5 +87,15 @@
         placeholder="Search listings…"
         on:input={onSearchInput}
     />
+
+    <!-- Sort select moved here -->
+    <select class="select" on:change={onSortChange}>
+        <option value="relevance">Sort</option>
+        <option value="priceAsc">Price: Low → High</option>
+        <option value="priceDesc">Price: High → Low</option>
+        <option value="yearDesc">Newest</option>
+        <option value="yearAsc">Oldest</option>
+        <option value="titleAsc">Title A→Z</option>
+    </select>
 
 </div>
