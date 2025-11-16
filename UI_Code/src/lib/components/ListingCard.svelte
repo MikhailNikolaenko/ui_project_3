@@ -3,98 +3,114 @@
 </script>
 
 <style>
-.card {
-    background: #fff;
-    border-radius: 14px;
-    border: 1px solid #eee;
-    padding: 0.75rem;
-    transition: transform 0.15s ease, box-shadow 0.15s ease;
-    cursor: pointer;
-    position: relative;
-}
+    .card {
+        display: block;
+        background: #fff;
+        border-radius: 14px;
+        border: 1px solid #e5e7eb;
+        padding: 0.75rem;
+        transition: transform 0.15s ease, box-shadow 0.15s ease;
+        cursor: pointer;
+        position: relative;
+        text-decoration: none;
+        color: inherit;
+    }
 
-.card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
-}
+    .card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+    }
 
-/* Image wrapper provides the "white frame" */
-.image-wrapper {
-    position: relative;
-    background: #fff;
-    border-radius: 12px;
-    padding: 6px;
-    border: 1px solid #f0f0f0;
-    overflow: hidden;
-}
+    .image-wrapper {
+        position: relative;
+        background: #fff;
+        border-radius: 12px;
+        padding: 6px;
+        margin-bottom: 0.5rem;
+        overflow: hidden;
+    }
 
-/* Square image */
-.image {
-    width: 100%;
-    aspect-ratio: 1 / 1;
-    object-fit: cover;
-    border-radius: 10px;
-}
+    .image {
+        width: 100%;
+        border-radius: 10px;
+        object-fit: cover;
+        max-height: 180px;
+        display: block;
+    }
 
-/* Floating price badge */
-.price-badge {
-    position: absolute;
-    bottom: 10px;
-    right: 10px;
+    .placeholder {
+        background: #f3f4f6;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #6b7280;
+        font-size: 0.85rem;
+    }
 
-    background: #fff;
-    padding: 0.25rem 0.6rem;
-    border-radius: 999px;
-    font-size: 0.85rem;
-    font-weight: 600;
+    .price-badge {
+        position: absolute;
+        left: 12px;
+        bottom: 12px;
+        background: rgba(15, 23, 42, 0.92);
+        color: #f9fafb;
+        padding: 4px 10px;
+        border-radius: 999px;
+        font-size: 0.85rem;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+    }
 
-    border: 1px solid #ddd;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-}
+    .negotiable-inline {
+        font-size: 0.75rem;
+        padding: 1px 6px;
+        border-radius: 999px;
+        background: rgba(34, 197, 94, 0.18);
+        color: #bbf7d0;
+        border: 1px solid rgba(34, 197, 94, 0.4);
+    }
 
-.price-badge .negotiable-inline {
-    margin-left: 0.45rem;
-    background: rgba(255,255,255,0.9);
-    padding: 0.08rem 0.35rem;
-    border-radius: 999px;
-    font-size: 0.7rem;
-    font-weight: 600;
-    color: #333;
-    border: 1px solid rgba(0,0,0,0.06);
-    opacity: 0.9;
-}
+    .title {
+        font-size: 0.98rem;
+        font-weight: 600;
+        margin-bottom: 0.25rem;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
 
-/* Title */
-.title {
-    margin-top: 0.65rem;
-    font-size: 1rem;
-    font-weight: 600;
-    color: #222;
-}
+    .meta {
+        font-size: 0.8rem;
+        color: #6b7280;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.3rem;
+        align-items: center;
+    }
 
-/* Location + time */
-.meta {
-    margin-top: 0.2rem;
-    font-size: 0.82rem;
-    color: #666;
-}
-
-.condition {
-    margin-left: 0.35rem;
-    font-weight: 600;
-    color: #444;
-}
+    .condition {
+        font-size: 0.75rem;
+        padding: 2px 8px;
+        border-radius: 999px;
+        background: #f3f4f6;
+        color: #4b5563;
+    }
 </style>
 
-<div class="card">
-    
+<a class="card" href={`/listing/${item.id}`}>
     <div class="image-wrapper">
-        <img class="image" src={item.img} alt={item.title} />
+        {#if item.img}
+            <img class="image" src={item.img} alt={item.title} />
+        {:else}
+            <div class="image placeholder">No Image</div>
+        {/if}
 
         <div class="price-badge">
             ${item.price}
             {#if item.negotiable}
-                <span class="negotiable-inline" title="Price is negotiable">Negotiable</span>
+                <span class="negotiable-inline" title="Price is negotiable">
+                    Negotiable
+                </span>
             {/if}
         </div>
     </div>
@@ -102,10 +118,12 @@
     <div class="title">{item.title}</div>
 
     <div class="meta">
-        {item.location} • {item.year}
+        {item.location}
+        {#if item.year}
+            • {item.year}
+        {/if}
         {#if item.condition}
-            <span class="condition">• {item.condition}</span>
+            <span class="condition">{item.condition}</span>
         {/if}
     </div>
-
-</div>
+</a>
