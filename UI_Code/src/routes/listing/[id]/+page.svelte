@@ -11,70 +11,100 @@
 
     <a class="back-link" href="/">← Back to listings</a>
 
-    <div class="hero-card">
-        {#if item.img}
-            <img class="hero-img" src={item.img} alt={item.title} />
-        {:else}
-            <div class="hero-img placeholder">No Image</div>
-        {/if}
-    </div>
+    <!-- SIDE-BY-SIDE ROW -->
+    <div class="content-row">
 
-    <div class="info-panel">
-
-        <h1 class="title">{item.title}</h1>
-
-        <div class="price-row">
-            <span class="price">${item.price}</span>
-            {#if item.negotiable}
-                <span class="neg-tag">Negotiable</span>
+        <!-- LEFT — IMAGE -->
+        <div class="hero-card">
+            {#if item.img}
+                <img class="hero-img" src={item.img} alt={item.title} />
+            {:else}
+                <div class="hero-img placeholder">No Image</div>
             {/if}
         </div>
 
-        <div class="stats-box">
-            <div class="stat">
-                <div class="num">{item.views24h}</div>
-                <div class="label">Views (24h)</div>
+        <!-- RIGHT — DETAILS -->
+        <div class="info-panel">
+
+            <h1 class="title">{item.title}</h1>
+
+            <div class="price-row">
+                <span class="price">${item.price}</span>
+                {#if item.negotiable}
+                    <span class="neg-tag">Negotiable</span>
+                {/if}
             </div>
-            <div class="stat">
-                <div class="num">{item.sellerLastOnlineHours}h</div>
-                <div class="label">Seller online</div>
+
+            <div class="stats-box">
+                <div class="stat">
+                    <div class="num">{item.views24h}</div>
+                    <div class="label">Views (24h)</div>
+                </div>
+                <div class="stat">
+                    <div class="num">{item.sellerLastOnlineHours}h</div>
+                    <div class="label">Seller online</div>
+                </div>
+                <div class="stat">
+                    <div class="num">{item.postedAgoDays}d</div>
+                    <div class="label">Posted</div>
+                </div>
             </div>
-            <div class="stat">
-                <div class="num">{item.postedAgoDays}d</div>
-                <div class="label">Posted</div>
+
+            <div class="meta-line">
+                <span>{item.location}</span>
+                {#if item.year}<span>• {item.year}</span>{/if}
+                {#if item.condition}<span>• {item.condition}</span>{/if}
+                {#if item.category}<span>• {item.category}</span>{/if}
             </div>
+
+            <h2 class="section-title">Details</h2>
+            <ul class="details-list">
+                <li><strong>Condition:</strong> {item.condition}</li>
+                <li><strong>Category:</strong> {item.category}</li>
+                <li><strong>Location:</strong> {item.location}</li>
+                <li><strong>Year:</strong> {item.year}</li>
+                <li><strong>Negotiable:</strong> {item.negotiable ? "Yes" : "No"}</li>
+            </ul>
+
+            <button class="contact-btn">Contact Seller</button>
         </div>
 
-        <div class="meta-line">
-            <span>{item.location}</span>
-            {#if item.year}<span>• {item.year}</span>{/if}
-            {#if item.condition}<span>• {item.condition}</span>{/if}
-            {#if item.category}<span>• {item.category}</span>{/if}
-        </div>
-
-        <h2 class="section-title">Details</h2>
-        <ul class="details-list">
-            <li><strong>Condition:</strong> {item.condition}</li>
-            <li><strong>Category:</strong> {item.category}</li>
-            <li><strong>Location:</strong> {item.location}</li>
-            <li><strong>Year:</strong> {item.year}</li>
-            <li><strong>Negotiable:</strong> {item.negotiable ? "Yes" : "No"}</li>
-        </ul>
-
-        <button class="contact-btn">Contact Seller</button>
     </div>
 </main>
 
 <style>
-/* GENERAL */
+
+/* ---------------------------- */
+/* FULL PAGE OVERLAY BLUR */
+/* ---------------------------- */
 .detail-page {
-    max-width: 880px;
-    margin: 2.2rem auto;
-    padding: 0 1rem 3rem;
-    font-family: -apple-system, BlinkMacSystemFont, "SF Pro", system-ui;
-    color: #111827;
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    background: rgba(255, 255, 255, 0.4);
+
+    overflow-y: auto;
+    padding: 2rem 1rem 3rem;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    animation: fadeIn 0.25s ease forwards;
 }
 
+@keyframes fadeIn {
+    from { opacity: 0; backdrop-filter: blur(0px); }
+    to   { opacity: 1; backdrop-filter: blur(12px); }
+}
+
+
+/* ---------------------------- */
+/* TOP BACK LINK */
+/* ---------------------------- */
 .back-link {
     text-decoration: none;
     font-size: 0.9rem;
@@ -84,14 +114,39 @@
 }
 
 
-/* HERO IMAGE CARD */
+/* ---------------------------- */
+/* SIDE-BY-SIDE LAYOUT */
+/* ---------------------------- */
+.content-row {
+    display: flex;
+    gap: 1.5rem;
+    width: 100%;
+    max-width: 1100px;
+}
+
+/* MOBILE fallback */
+@media (max-width: 800px) {
+    .content-row {
+        flex-direction: column;
+    }
+}
+
+
+/* ---------------------------- */
+/* IMAGE CARD */
+/* ---------------------------- */
 .hero-card {
+    flex: 1;
+    max-width: 50%;
     background: #fff;
     border-radius: 18px;
     padding: 0.75rem;
     border: 1px solid #e5e7eb;
     box-shadow: 0 6px 18px rgba(0,0,0,0.04);
-    margin-bottom: 1.5rem;
+}
+
+@media (max-width: 800px) {
+    .hero-card { max-width: 100%; }
 }
 
 .hero-img {
@@ -103,14 +158,19 @@
 }
 
 
-/* INFO PANEL */
+/* ---------------------------- */
+/* RIGHT PANEL */
+/* ---------------------------- */
 .info-panel {
+    flex: 1;
     background: #ffffff;
     border-radius: 18px;
     padding: 1.6rem;
     border: 1px solid #e5e7eb;
     box-shadow: 0 6px 18px rgba(0,0,0,0.04);
 }
+
+
 
 /* Title */
 .title {
@@ -141,7 +201,8 @@
     color: #16a34a;
 }
 
-/* Modern stats bar */
+
+/* Stats */
 .stats-box {
     display: flex;
     justify-content: space-between;
@@ -153,24 +214,12 @@
     border: 1px solid #e5e7eb;
 }
 
-.stat {
-    text-align: center;
-    flex: 1;
-}
+.stat { text-align: center; flex: 1; }
+.num { font-size: 1.25rem; font-weight: 700; }
+.label { font-size: 0.75rem; color: #6b7280; margin-top: 2px; }
 
-.num {
-    font-size: 1.25rem;
-    font-weight: 700;
-}
 
-.label {
-    font-size: 0.75rem;
-    color: #6b7280;
-    letter-spacing: 0.02em;
-    margin-top: 2px;
-}
-
-/* meta line */
+/* Meta */
 .meta-line {
     color: #6b7280;
     font-size: 0.92rem;
@@ -179,7 +228,7 @@
     margin-bottom: 1.2rem;
 }
 
-/* SECTION TITLE */
+/* Section title */
 .section-title {
     margin-top: 1rem;
     margin-bottom: 0.6rem;
@@ -195,7 +244,8 @@
     line-height: 1.55;
 }
 
-/* Contact button with gradient */
+
+/* Contact button */
 .contact-btn {
     background: linear-gradient(135deg, #7c3aed, #3b82f6);
     color: white;
@@ -214,20 +264,4 @@
     box-shadow: 0 6px 16px rgba(0,0,0,0.12);
 }
 
-/* MOBILE */
-@media (max-width: 640px) {
-    .stats-box {
-        flex-direction: column;
-        align-items: center;
-        gap: 0.8rem;
-    }
-
-    .num {
-        font-size: 1.1rem;
-    }
-
-    .info-panel {
-        padding: 1.2rem;
-    }
-}
 </style>
