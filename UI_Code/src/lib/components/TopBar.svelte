@@ -114,11 +114,31 @@
     border: 1px solid #ccc;
     font-size: 0.9rem;
 }
+
+.brand {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-right: 1rem;
+    display: flex;
+    align-items: flex-start;
+    font-family: system-ui, sans-serif;
+    color: #8f009c;
+}
+
+.sup {
+    font-size: 0.75rem;
+    vertical-align: super;
+    margin-left: 2px;
+}
+
 </style>
 
 <div class="topbar-wrapper {hidden ? 'hidden-bg' : ''}">
     <div class="topbar {hidden ? 'hidden' : ''}">
 
+        <div class="brand">
+            Craigslist<span class="sup">+</span>
+        </div>
 
         <!-- STATE SELECT -->
         <select class="select" on:change={onSelectState}>
