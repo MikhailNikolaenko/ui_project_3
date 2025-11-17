@@ -126,4 +126,6 @@
             <span class="condition">{item.condition}</span>
         {/if}
     </div>
+
+    
 </a>

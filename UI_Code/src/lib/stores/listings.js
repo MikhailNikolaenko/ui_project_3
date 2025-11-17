@@ -10,7 +10,12 @@ export const listings = writable([
         location: "Cincinnati",
         year: 2021,
         category: "Electronics",
-        img: "/demo/iphone.jpg"
+        img: "/demo/iphone.jpg",
+
+        views24h: Math.floor(Math.random() * 120) + 5,   // 5–125 views
+        sellerLastOnlineHours: Math.floor(Math.random() * 48) + 1, // 1–48 hours
+        postedAgoDays: Math.floor(Math.random() * 30) + 1 // 1–30 days
+
     },
     {
         id: 2,
@@ -21,7 +26,11 @@ export const listings = writable([
         location: "Cincinnati",
         year: 2015,
         category: "Cars",
-        img: "/demo/civic.jpg"
+        img: "/demo/civic.jpg",
+
+        views24h: Math.floor(Math.random() * 120) + 5,   // 5–125 views
+        sellerLastOnlineHours: Math.floor(Math.random() * 48) + 1, // 1–48 hours
+        postedAgoDays: Math.floor(Math.random() * 30) + 1 // 1–30 days
     },
     {
         id: 3,
@@ -32,7 +41,11 @@ export const listings = writable([
         location: "Cincinnati",
         year: 2019,
         category: "Electronics",
-        img: "/demo/samsung32tv.jpg"
+        img: "/demo/samsung32tv.jpg",
+        
+        views24h: Math.floor(Math.random() * 120) + 5,   // 5–125 views
+        sellerLastOnlineHours: Math.floor(Math.random() * 48) + 1, // 1–48 hours
+        postedAgoDays: Math.floor(Math.random() * 30) + 1 // 1–30 days
     },
     {
         id: 4,
@@ -43,7 +56,11 @@ export const listings = writable([
         location: "Cincinnati",
         year: 2020,
         category: "Electronics",
-        img: "/demo/macbook.jpg"
+        img: "/demo/macbook.jpg",
+
+        views24h: Math.floor(Math.random() * 120) + 5,   // 5–125 views
+        sellerLastOnlineHours: Math.floor(Math.random() * 48) + 1, // 1–48 hours
+        postedAgoDays: Math.floor(Math.random() * 30) + 1 // 1–30 days
     },
     {
         id: 5,
@@ -54,7 +71,11 @@ export const listings = writable([
         location: "Cincinnati",
         year: 2014,
         category: "Cars",
-        img: "/demo/altima.jpg"
+        img: "/demo/altima.jpg",
+
+        views24h: Math.floor(Math.random() * 120) + 5,   // 5–125 views
+        sellerLastOnlineHours: Math.floor(Math.random() * 48) + 1, // 1–48 hours
+        postedAgoDays: Math.floor(Math.random() * 30) + 1 // 1–30 days
     },
     {
         id: 6,
@@ -65,7 +86,11 @@ export const listings = writable([
         location: "Cincinnati",
         year: 2018,
         category: "Furniture",
-        img: "/demo/tableset.jpg"
+        img: "/demo/tableset.jpg",
+
+        views24h: Math.floor(Math.random() * 120) + 5,   // 5–125 views
+        sellerLastOnlineHours: Math.floor(Math.random() * 48) + 1, // 1–48 hours
+        postedAgoDays: Math.floor(Math.random() * 30) + 1 // 1–30 days
     },
     {
         id: 7,
@@ -76,7 +101,11 @@ export const listings = writable([
         location: "Cincinnati",
         year: 2022,
         category: "Electronics",
-        img: "/demo/gamingpc.jpg"
+        img: "/demo/gamingpc.jpg",
+
+        views24h: Math.floor(Math.random() * 120) + 5,   // 5–125 views
+        sellerLastOnlineHours: Math.floor(Math.random() * 48) + 1, // 1–48 hours
+        postedAgoDays: Math.floor(Math.random() * 30) + 1 // 1–30 days
     },
     {
         id: 8,
@@ -87,7 +116,11 @@ export const listings = writable([
         location: "Cincinnati",
         year: 2020,
         category: "Sports",
-        img: "/demo/mountainbike.jpg"
+        img: "/demo/mountainbike.jpg",
+
+        views24h: Math.floor(Math.random() * 120) + 5,   // 5–125 views
+        sellerLastOnlineHours: Math.floor(Math.random() * 48) + 1, // 1–48 hours
+        postedAgoDays: Math.floor(Math.random() * 30) + 1 // 1–30 days
     },
     {
         id: 9,
@@ -98,7 +131,11 @@ export const listings = writable([
         location: "Cincinnati",
         year: 2019,
         category: "Furniture",
-        img: "/demo/sofa3seat.jpg"
+        img: "/demo/sofa3seat.jpg",
+
+        views24h: Math.floor(Math.random() * 120) + 5,   // 5–125 views
+        sellerLastOnlineHours: Math.floor(Math.random() * 48) + 1, // 1–48 hours
+        postedAgoDays: Math.floor(Math.random() * 30) + 1 // 1–30 days
     },
     {
         id: 10,
@@ -109,7 +146,11 @@ export const listings = writable([
         location: "Cincinnati",
         year: 2021,
         category: "Electronics",
-        img: "/demo/nintendoswitch.jpg"
+        img: "/demo/nintendoswitch.jpg",
+
+        views24h: Math.floor(Math.random() * 120) + 5,   // 5–125 views
+        sellerLastOnlineHours: Math.floor(Math.random() * 48) + 1, // 1–48 hours
+        postedAgoDays: Math.floor(Math.random() * 30) + 1 // 1–30 days
     },
     {
         id: 11,
@@ -120,7 +161,11 @@ export const listings = writable([
         location: "Cincinnati",
         year: 2020,
         category: "Electronics",
-        img: "/demo/xps13.jpg"
+        img: "/demo/xps13.jpg",
+
+        views24h: Math.floor(Math.random() * 120) + 5,   // 5–125 views
+        sellerLastOnlineHours: Math.floor(Math.random() * 48) + 1, // 1–48 hours
+        postedAgoDays: Math.floor(Math.random() * 30) + 1 // 1–30 days
     },
     {
         id: 12,
@@ -131,7 +176,11 @@ export const listings = writable([
         location: "Cincinnati",
         year: 2012,
         category: "Cars",
-        img: "/demo/f150.jpg"
+        img: "/demo/f150.jpg",
+
+        views24h: Math.floor(Math.random() * 120) + 5,   // 5–125 views
+        sellerLastOnlineHours: Math.floor(Math.random() * 48) + 1, // 1–48 hours
+        postedAgoDays: Math.floor(Math.random() * 30) + 1 // 1–30 days
     },
     {
         id: 13,
@@ -142,7 +191,11 @@ export const listings = writable([
         location: "Cincinnati",
         year: 2021,
         category: "Electronics",
-        img: "/demo/applewatch.jpg"
+        img: "/demo/applewatch.jpg",
+
+        views24h: Math.floor(Math.random() * 120) + 5,   // 5–125 views
+        sellerLastOnlineHours: Math.floor(Math.random() * 48) + 1, // 1–48 hours
+        postedAgoDays: Math.floor(Math.random() * 30) + 1 // 1–30 days
     },
     {
         id: 14,
@@ -153,7 +206,11 @@ export const listings = writable([
         location: "Cincinnati",
         year: 2020,
         category: "Electronics",
-        img: "/demo/canonrebel.jpg"
+        img: "/demo/canonrebel.jpg",
+
+        views24h: Math.floor(Math.random() * 120) + 5,   // 5–125 views
+        sellerLastOnlineHours: Math.floor(Math.random() * 48) + 1, // 1–48 hours
+        postedAgoDays: Math.floor(Math.random() * 30) + 1 // 1–30 days
     },
     {
         id: 15,
@@ -164,7 +221,11 @@ export const listings = writable([
         location: "Cincinnati",
         year: 2018,
         category: "Furniture",
-        img: "/demo/queenbedframe.jpg"
+        img: "/demo/queenbedframe.jpg",
+
+        views24h: Math.floor(Math.random() * 120) + 5,   // 5–125 views
+        sellerLastOnlineHours: Math.floor(Math.random() * 48) + 1, // 1–48 hours
+        postedAgoDays: Math.floor(Math.random() * 30) + 1 // 1–30 days
     },
     {
         id: 16,
@@ -175,7 +236,11 @@ export const listings = writable([
         location: "Cincinnati",
         year: 2019,
         category: "Furniture",
-        img: "/demo/blackbookshelf.jpg"
+        img: "/demo/blackbookshelf.jpg",
+
+        views24h: Math.floor(Math.random() * 120) + 5,   // 5–125 views
+        sellerLastOnlineHours: Math.floor(Math.random() * 48) + 1, // 1–48 hours
+        postedAgoDays: Math.floor(Math.random() * 30) + 1 // 1–30 days
     },
     {
         id: 17,
@@ -186,7 +251,11 @@ export const listings = writable([
         location: "Cincinnati",
         year: 2021,
         category: "Electronics",
-        img: "/demo/ps5.jpg"
+        img: "/demo/ps5.jpg",
+
+        views24h: Math.floor(Math.random() * 120) + 5,   // 5–125 views
+        sellerLastOnlineHours: Math.floor(Math.random() * 48) + 1, // 1–48 hours
+        postedAgoDays: Math.floor(Math.random() * 30) + 1 // 1–30 days
     },
     {
         id: 18,
@@ -197,7 +266,11 @@ export const listings = writable([
         location: "Cincinnati",
         year: 2020,
         category: "Sports",
-        img: "/demo/beachkayak.jpg"
+        img: "/demo/beachkayak.jpg",
+
+        views24h: Math.floor(Math.random() * 120) + 5,   // 5–125 views
+        sellerLastOnlineHours: Math.floor(Math.random() * 48) + 1, // 1–48 hours
+        postedAgoDays: Math.floor(Math.random() * 30) + 1 // 1–30 days
     },
     {
         id: 19,
@@ -208,7 +281,11 @@ export const listings = writable([
         location: "Cincinnati",
         year: 2022,
         category: "Electronics",
-        img: "/demo/airpodpro.jpg"
+        img: "/demo/airpodpro.jpg",
+
+        views24h: Math.floor(Math.random() * 120) + 5,   // 5–125 views
+        sellerLastOnlineHours: Math.floor(Math.random() * 48) + 1, // 1–48 hours
+        postedAgoDays: Math.floor(Math.random() * 30) + 1 // 1–30 days
     },
     {
         id: 20,
@@ -219,7 +296,11 @@ export const listings = writable([
         location: "Cincinnati",
         year: 2013,
         category: "Cars",
-        img: "/demo/camry2009.jpg"
+        img: "/demo/camry2009.jpg",
+
+        views24h: Math.floor(Math.random() * 120) + 5,   // 5–125 views
+        sellerLastOnlineHours: Math.floor(Math.random() * 48) + 1, // 1–48 hours
+        postedAgoDays: Math.floor(Math.random() * 30) + 1 // 1–30 days
     },
     {
         id: 21,
@@ -230,7 +311,11 @@ export const listings = writable([
         location: "Cincinnati",
         year: 2021,
         category: "Furniture",
-        img: "/demo/vintagechair.jpg"
+        img: "/demo/vintagechair.jpg",
+
+        views24h: Math.floor(Math.random() * 120) + 5,   // 5–125 views
+        sellerLastOnlineHours: Math.floor(Math.random() * 48) + 1, // 1–48 hours
+        postedAgoDays: Math.floor(Math.random() * 30) + 1 // 1–30 days
     },
     {
         id: 22,
@@ -241,7 +326,11 @@ export const listings = writable([
         location: "Cincinnati",
         year: 2020,
         category: "Electronics",
-        img: "/demo/thinkpad14.jpg"
+        img: "/demo/thinkpad14.jpg",
+
+        views24h: Math.floor(Math.random() * 120) + 5,   // 5–125 views
+        sellerLastOnlineHours: Math.floor(Math.random() * 48) + 1, // 1–48 hours
+        postedAgoDays: Math.floor(Math.random() * 30) + 1 // 1–30 days
     },
     {
         id: 23,
@@ -252,7 +341,11 @@ export const listings = writable([
         location: "Cincinnati",
         year: 2022,
         category: "Electronics",
-        img: "/demo/galaxys22.jpg"
+        img: "/demo/galaxys22.jpg",
+
+        views24h: Math.floor(Math.random() * 120) + 5,   // 5–125 views
+        sellerLastOnlineHours: Math.floor(Math.random() * 48) + 1, // 1–48 hours
+        postedAgoDays: Math.floor(Math.random() * 30) + 1 // 1–30 days
     },
     {
         id: 24,
@@ -263,7 +356,11 @@ export const listings = writable([
         location: "Cincinnati",
         year: 2019,
         category: "Sports",
-        img: "/demo/roadbike.jpg"
+        img: "/demo/roadbike.jpg",
+
+        views24h: Math.floor(Math.random() * 120) + 5,   // 5–125 views
+        sellerLastOnlineHours: Math.floor(Math.random() * 48) + 1, // 1–48 hours
+        postedAgoDays: Math.floor(Math.random() * 30) + 1 // 1–30 days
     },
     {
         id: 25,
@@ -274,7 +371,11 @@ export const listings = writable([
         location: "Cincinnati",
         year: 2021,
         category: "Electronics",
-        img: "/demo/xboxseriesx.jpg"
+        img: "/demo/xboxseriesx.jpg",
+
+        views24h: Math.floor(Math.random() * 120) + 5,   // 5–125 views
+        sellerLastOnlineHours: Math.floor(Math.random() * 48) + 1, // 1–48 hours
+        postedAgoDays: Math.floor(Math.random() * 30) + 1 // 1–30 days
     },
     {
         id: 26,
@@ -285,7 +386,11 @@ export const listings = writable([
         location: "Cincinnati",
         year: 2018,
         category: "Home",
-        img: "/demo/kitchenaidmixer.jpg"
+        img: "/demo/kitchenaidmixer.jpg",
+        
+        views24h: Math.floor(Math.random() * 120) + 5,   // 5–125 views
+        sellerLastOnlineHours: Math.floor(Math.random() * 48) + 1, // 1–48 hours
+        postedAgoDays: Math.floor(Math.random() * 30) + 1 // 1–30 days
     },
     {
         id: 27,
@@ -296,7 +401,11 @@ export const listings = writable([
         location: "Cincinnati",
         year: 2020,
         category: "Pets",
-        img: "/demo/petcrate.jpg"
+        img: "/demo/petcrate.jpg",
+
+        views24h: Math.floor(Math.random() * 120) + 5,   // 5–125 views
+        sellerLastOnlineHours: Math.floor(Math.random() * 48) + 1, // 1–48 hours
+        postedAgoDays: Math.floor(Math.random() * 30) + 1 // 1–30 days
     },
     {
         id: 28,
@@ -307,7 +416,11 @@ export const listings = writable([
         location: "Cincinnati",
         year: 2019,
         category: "Sports",
-        img: "/demo/treadmill.jpg"
+        img: "/demo/treadmill.jpg",
+
+        views24h: Math.floor(Math.random() * 120) + 5,   // 5–125 views
+        sellerLastOnlineHours: Math.floor(Math.random() * 48) + 1, // 1–48 hours
+        postedAgoDays: Math.floor(Math.random() * 30) + 1 // 1–30 days
     },
     {
         id: 29,
@@ -318,7 +431,11 @@ export const listings = writable([
         location: "Cincinnati",
         year: 2021,
         category: "Clothing",
-        img: "/demo/leatherjacket.jpg"
+        img: "/demo/leatherjacket.jpg",
+
+        views24h: Math.floor(Math.random() * 120) + 5,   // 5–125 views
+        sellerLastOnlineHours: Math.floor(Math.random() * 48) + 1, // 1–48 hours
+        postedAgoDays: Math.floor(Math.random() * 30) + 1 // 1–30 days
     },
     {
         id: 30,
@@ -329,7 +446,11 @@ export const listings = writable([
         location: "Cincinnati",
         year: 2014,
         category: "Cars",
-        img: "/demo/outback2015.jpg"
+        img: "/demo/outback2015.jpg",
+
+        views24h: Math.floor(Math.random() * 120) + 5,   // 5–125 views
+        sellerLastOnlineHours: Math.floor(Math.random() * 48) + 1, // 1–48 hours
+        postedAgoDays: Math.floor(Math.random() * 30) + 1 // 1–30 days
     }
     // Add more sample data later…
 ]);
