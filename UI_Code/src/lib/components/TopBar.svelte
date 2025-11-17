@@ -56,7 +56,13 @@
     top: 0;
     z-index: 200;
     background: white;
+    transition: transform 0.25s ease;
 }
+
+.topbar-wrapper.hidden {
+    transform: translateY(-100%);
+}
+
 
 .topbar {
     position: absolute;
@@ -65,11 +71,6 @@
     display: flex;
     gap: 1rem;
     align-items: center;
-    transition: transform 0.25s ease;
-}
-
-.topbar.hidden {
-    transform: translateY(-100%);
 }
 
 .select {
@@ -98,8 +99,8 @@ button.select:active {
 }
 </style>
 
-<div class="topbar-wrapper">
-    <div class="topbar {hidden ? 'hidden' : ''}">
+<div class="topbar-wrapper {hidden ? 'hidden' : ''}">
+    <div class="topbar">
 
         <div class="brand">Craigslist<span class="sup">+</span></div>
 
