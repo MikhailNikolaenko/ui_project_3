@@ -13,47 +13,73 @@
     function toggleCategory(label) {
         filters.update(f => ({
             ...f,
-            category: f.category === label ? "" : label // toggle on/off
+            category: f.category === label ? "" : label
         }));
     }
 </script>
 
 <style>
+/* WRAPPER — modern frosted glass */
 .wrapper {
     width: 240px;
-    padding: 1rem;
-    border-right: 1px solid #ddd;
-    background: #fafafa;
+    padding: 1.2rem;
+    background: rgba(250, 250, 255, 0.5);
+    border-right: 1px solid rgba(200, 200, 200, 0.35);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
 }
 
+/* CATEGORY CARD — sleek, neumorphic-like */
 .card {
     display: flex;
     align-items: center;
-    gap: 0.7rem;
-    padding: 0.6rem 0.8rem;
-    margin-bottom: 0.6rem;
-    border-radius: 10px;
-    border: 1px solid #ddd;
-    background: white;
+    gap: 0.65rem;
+
+    padding: 0.7rem 0.9rem;
+
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 14px;
+    border: 1px solid rgba(220, 220, 230, 0.6);
+
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: all 0.22s ease;
+    font-size: 0.92rem;
+
+    /* slight neumorphic shadow */
+    box-shadow:
+        0 2px 4px rgba(0,0,0,0.05),
+        0 1px 0 rgba(255,255,255,0.7) inset;
 }
 
 .card:hover {
-    background: #f1f1f1;
-    transform: translateX(3px);
-}
-
-.card.active {
-    background: #e7e7e7;
-    border-color: #bbb;
     transform: translateX(4px);
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow:
+        0 4px 12px rgba(0,0,0,0.08),
+        0 0 0 2px rgba(124, 58, 237, 0.1); /* subtle purple glow */
 }
 
+/* ACTIVE OPTION */
+.card.active {
+    background: rgba(255, 255, 255, 0.95);
+    border-color: rgba(124, 58, 237, 0.45); /* purple accent */
+    box-shadow:
+        0 6px 16px rgba(0,0,0,0.09),
+        0 0 0 2px rgba(124, 58, 237, 0.25);
+    transform: translateX(6px);
+}
+
+/* icon styling */
 .icon {
-    font-size: 1.3rem;
+    font-size: 1.35rem;
+    opacity: 0.9;
 }
 </style>
+
 
 <div class="wrapper">
     {#each categories as cat}
