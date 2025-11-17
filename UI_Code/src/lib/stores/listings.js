@@ -1,6 +1,23 @@
 import { writable, derived } from 'svelte/store';
 
-export const listings = writable([
+// Generate a random coordinate near Cincinnati (~8 mile radius)
+// Downtown Cincinnati: 39.1031, -84.5120
+function randomNearCincy() {
+    const baseLat = 39.1031;
+    const baseLon = -84.5120;
+
+    // ~8 miles radius
+    const radiusMiles = 8;
+    const radiusDeg = radiusMiles / 69; // 69 miles ~= 1 degree
+
+    const lat = baseLat + (Math.random() - 0.5) * radiusDeg * 2;
+    const lon = baseLon + (Math.random() - 0.5) * radiusDeg * 2;
+
+    return { lat, lng: lon };
+}
+
+
+const rawData = [
     {
         id: 1,
         title: "iPhone 13",
@@ -453,7 +470,15 @@ export const listings = writable([
         postedAgoDays: Math.floor(Math.random() * 30) + 1 // 1–30 days
     }
     // Add more sample data later…
-]);
+];
+
+export const listings = writable(
+    rawData.map(item => ({
+        ...item,
+        ...randomNearCincy()   // ⭐ inject lat + lng HERE
+    }))
+);
+
 
 // UI state: global sort key for listing grid
 export const sortKey = writable('relevance');
@@ -468,14 +493,36 @@ export const filters = writable({
     yearMin: 1980,
     yearMax: 2030,
     condition: "",
-    negotiableOnly: false
+    negotiableOnly: false,
+
+    radiusMiles: null,
+    locationLat: null,
+    locationLon: null
 });
 
-// derived filtered data
 export const filteredListings = derived(
     [listings, filters],
     ([$listings, $filters]) => {
+
+        // Haversine distance (no external city DB)
+        function haversine(lat1, lon1, lat2, lon2) {
+            if (!lat1 || !lon1 || !lat2 || !lon2) return Infinity;
+
+            const R = 3958.8;
+            const dLat = (lat2 - lat1) * Math.PI/180;
+            const dLon = (lon2 - lon1) * Math.PI/180;
+
+            const a =
+                Math.sin(dLat/2)**2 +
+                Math.cos(lat1 * Math.PI/180) *
+                Math.cos(lat2 * Math.PI/180) *
+                Math.sin(dLon/2)**2;
+
+            return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+        }
+
         return $listings.filter(item => {
+
             const matchesSearch =
                 item.title.toLowerCase().includes($filters.search.toLowerCase());
 
@@ -494,20 +541,42 @@ export const filteredListings = derived(
                 item.year <= $filters.yearMax;
 
             const matchesCondition =
-                !$filters.condition || (item.condition && item.condition === $filters.condition);
+                !$filters.condition || item.condition === $filters.condition;
 
             const matchesNegotiable =
-                !$filters.negotiableOnly || (item.negotiable === true);
+                !$filters.negotiableOnly || item.negotiable === true;
+
+            // ⭐ GEO FILTERING (only if lat/lon already injected)
+            let matchesGeo = true;
+
+            if (
+                $filters.radiusMiles &&
+                $filters.locationLat &&
+                $filters.locationLon &&
+                item.lat &&
+                item.lng
+            ) {
+                const dist = haversine(
+                    item.lat,
+                    item.lng,
+                    $filters.locationLat,
+                    $filters.locationLon
+                );
+
+                matchesGeo = dist <= $filters.radiusMiles;
+            }
 
             return (
                 matchesSearch &&
                 matchesCategory &&
                 matchesLocation &&
                 matchesPrice &&
-                matchesYear
-                && matchesCondition
-                && matchesNegotiable
+                matchesYear &&
+                matchesCondition &&
+                matchesNegotiable &&
+                matchesGeo
             );
         });
     }
 );
+

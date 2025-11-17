@@ -1,8 +1,17 @@
+<script context="module">
+    // GLOBAL store accessible to all components
+    import { writable } from "svelte/store";
+
+    // Must be exported from MODULE script
+    export const mapOpen = writable(false);
+</script>
+
 <script>
     import TopBar from "$lib/components/TopBar.svelte";
     import CategoryList from "$lib/components/CategoryList.svelte";
     import ListingGrid from "$lib/components/ListingGrid.svelte";
     import SideFiltersRight from "$lib/components/SideFiltersRight.svelte";
+    import MapFilterModal from "$lib/components/MapFilterModal.svelte";
 
     let filtersOpen = false;
 </script>
@@ -13,15 +22,13 @@
     grid-template-columns: auto 1fr;
 }
 
-
-
+/* FILTER BUTTON */
 .filterButton {
     position: fixed;
     top: 24px;
     right: 20px;
     z-index: 500;
 
-    /* duotone gradient */
     background: linear-gradient(135deg,
         #7c3aed 0%,
         #3b82f6 100%
@@ -45,7 +52,6 @@
         opacity 0.25s ease;
 }
 
-/* Hover effect */
 .filterButton:hover {
     transform: translateY(-2px);
     box-shadow:
@@ -53,30 +59,31 @@
         inset 0 0 8px rgba(255,255,255,0.15);
 }
 
-
-
-
+/* Filters panel open */
 .shifted {
-    right: 330px;      /* moves left when panel is open */
-    opacity: 0.85;     /* slight fade for modern feel */
+    right: 330px;
+    opacity: 0.85;
 }
-
 </style>
 
+<!-- TOP BAR -->
 <TopBar />
 
-<!-- Filters button (top right) -->
-<button 
-    class="filterButton {filtersOpen ? 'shifted' : ''}" 
+<!-- FILTERS BUTTON -->
+<button
+    class="filterButton {filtersOpen ? 'shifted' : ''}"
     on:click={() => (filtersOpen = !filtersOpen)}
 >
     {filtersOpen ? "Close" : "Filters"}
 </button>
 
-
-<SideFiltersRight open={filtersOpen} />
+<!-- SIDE FILTER PANEL -->
+<SideFiltersRight {filtersOpen} open={filtersOpen} />
 
 <div class="page">
     <CategoryList />
     <ListingGrid />
+
+    <!-- GLOBAL MAP MODAL (uses global mapOpen) -->
+    <MapFilterModal />
 </div>
