@@ -497,7 +497,11 @@ export const filters = writable({
 
     radiusMiles: null,
     locationLat: null,
-    locationLon: null
+    locationLon: null,
+
+    minViews24h: 0,
+    maxOnlineHours: 9999,
+    maxPostedDays: 9999
 });
 
 export const filteredListings = derived(
@@ -546,6 +550,16 @@ export const filteredListings = derived(
             const matchesNegotiable =
                 !$filters.negotiableOnly || item.negotiable === true;
 
+            const matchesViews =
+                item.views24h >= $filters.minViews24h;
+
+            const matchesOnline =
+                item.sellerLastOnlineHours <= $filters.maxOnlineHours;
+
+            const matchesPosted =
+                item.postedAgoDays <= $filters.maxPostedDays;
+
+
             // ⭐ GEO FILTERING (only if lat/lon already injected)
             let matchesGeo = true;
 
@@ -574,7 +588,10 @@ export const filteredListings = derived(
                 matchesYear &&
                 matchesCondition &&
                 matchesNegotiable &&
-                matchesGeo
+                matchesGeo &&
+                matchesViews &&
+                matchesOnline &&
+                matchesPosted
             );
         });
     }

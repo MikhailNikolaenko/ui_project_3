@@ -1,6 +1,27 @@
 <script>
     import { filters } from "$lib/stores/listings";
     export let open = false;
+
+    function clearAll() {
+    filters.set({
+        search: "",
+        category: "",
+        location: "",
+        minPrice: 0,
+        maxPrice: 999999,
+        yearMin: 1980,
+        yearMax: 2030,
+        condition: "",
+        negotiableOnly: false,
+        radiusMiles: null,
+        locationLat: null,
+        locationLon: null,
+        minViews24h: 0,
+        maxOnlineHours: 9999,
+        maxPostedDays: 9999
+    });
+}
+
 </script>
 
 <style>
@@ -114,11 +135,48 @@ select:focus {
     height: 80px;
     width: 100%;
 }
+
+.clearBtn {
+    align-self: flex-end;
+    margin-bottom: -0.5rem;
+
+    background: linear-gradient(135deg,
+        #ef4444 0%,     /* red */
+        #dc2626 100%
+    );
+
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 0.45rem 0.9rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+
+    box-shadow:
+        0 4px 12px rgba(200, 0, 0, 0.25),
+        inset 0 0 8px rgba(255,255,255,0.1);
+
+    cursor: pointer;
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.clearBtn:hover {
+    transform: translateY(-2px);
+    box-shadow:
+        0 6px 18px rgba(200, 0, 0, 0.35),
+        inset 0 0 8px rgba(255,255,255,0.15);
+}
+
 </style>
 
 
 
 <div class="panel {open ? '' : 'hidden'}">
+
+    <button class="clearBtn" on:click={clearAll}>Clear Filters</button>
+
 
     <!-- ⭐ NORMAL FILTERS grouped together (NO gap above/below) -->
     <div class="section">
@@ -171,23 +229,39 @@ select:focus {
     <div class="divider"></div>
 
 
-    <!-- ⭐ ADVANCED FILTERS grouped together -->
+    <!-- ADVANCED FILTERS grouped together -->
     <div class="section-advanced">
         <h3>Advanced Filters</h3>
 
         <div class="field">
-            <label>Category Keyword</label>
-            <input type="text" placeholder="e.g. Electronics, Cars"
-                on:input="{e => filters.update(f => ({ ...f, category: e.target.value }))}">
+            <label>Min Views (24h)</label>
+            <input
+                type="number"
+                placeholder="e.g. 20"
+                on:input="{e => filters.update(f => ({ ...f, minViews24h: +e.target.value }))}"
+            >
         </div>
 
         <div class="field">
-            <label>Minimum Condition Score</label>
-            <input type="number" placeholder="1 - 10" min="1" max="10">
+            <label>Seller Online (max hours ago)</label>
+            <input
+                type="number"
+                placeholder="e.g. 12"
+                on:input="{e => filters.update(f => ({ ...f, maxOnlineHours: +e.target.value }))}"
+            >
         </div>
 
-        <!-- ⭐ bottom-only padding -->
+        <div class="field">
+            <label>Posted (max days ago)</label>
+            <input
+                type="number"
+                placeholder="e.g. 7"
+                on:input="{e => filters.update(f => ({ ...f, maxPostedDays: +e.target.value }))}"
+            >
+        </div>
+
         <div class="advanced-spacer"></div>
     </div>
+
 
 </div>
