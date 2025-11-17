@@ -107,9 +107,9 @@
 /* ---------------------------- */
 .back-link {
     text-decoration: none;
-    font-size: 0.9rem;
-    color: #3b82f6;
-    margin-bottom: 1.2rem;
+    font-size: 1.5rem;
+    color: #3b76f6;
+    margin-bottom: 1rem;
     display: inline-block;
 }
 

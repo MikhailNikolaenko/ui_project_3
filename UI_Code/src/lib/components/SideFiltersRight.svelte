@@ -28,9 +28,7 @@
 .panel {
     width: 300px;
 
-    background: rgba(249, 250, 251, 0.7);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
+    background: rgb(249, 250, 251);
 
     border-left: 1px solid rgba(229, 231, 235, 0.6);
     padding: 1.5rem;

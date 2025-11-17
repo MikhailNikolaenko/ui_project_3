@@ -89,12 +89,12 @@ button.select:active {
 }
 
 .brand {
-    font-size: 1.3rem;
+    font-size: 2rem;
     font-weight: 600;
     color: #8f009c;
 }
 .sup {
-    font-size: 0.75rem;
+    font-size: 1.3rem;
     vertical-align: super;
 }
 </style>

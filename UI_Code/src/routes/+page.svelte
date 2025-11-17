@@ -61,7 +61,7 @@
 
 /* Filters panel open */
 .shifted {
-    right: 330px;
+    right: 260px;
     opacity: 0.85;
 }
 </style>
