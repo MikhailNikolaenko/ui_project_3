@@ -24,7 +24,13 @@
 
 </script>
 
+
 <style>
+
+    :global(body) {
+    font-family: 'Inter', sans-serif;
+}
+
 .panel {
     width: 300px;
 

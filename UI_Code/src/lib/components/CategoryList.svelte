@@ -20,6 +20,11 @@
 
 <style>
 /* WRAPPER — modern frosted glass */
+:global(body) {
+    font-family: 'Inter', sans-serif;
+}
+
+
 .wrapper {
     width: 240px;
     padding: 1.2rem;

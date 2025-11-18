@@ -50,6 +50,11 @@
 </script>
 
 <style>
+
+:global(body) {
+    font-family: 'Inter', sans-serif;
+}
+
 .topbar-wrapper {
     height: 64px;
     position: sticky;

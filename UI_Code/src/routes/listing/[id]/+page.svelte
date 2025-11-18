@@ -74,6 +74,11 @@
 
 <style>
 
+:global(body) {
+    font-family: 'Inter', sans-serif;
+}
+
+
 /* ---------------------------- */
 /* FULL PAGE OVERLAY BLUR */
 /* ---------------------------- */
