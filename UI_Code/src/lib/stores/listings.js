@@ -475,12 +475,12 @@ const rawData = [
 export const listings = writable(
     rawData.map(item => ({
         ...item,
-        ...randomNearCincy()   // ⭐ inject lat + lng HERE
+        ...randomNearCincy()
     }))
 );
 
 
-// UI state: global sort key for listing grid
+//global sort key for listing grid
 export const sortKey = writable('relevance');
 
 // user filters
@@ -560,7 +560,7 @@ export const filteredListings = derived(
                 item.postedAgoDays <= $filters.maxPostedDays;
 
 
-            // ⭐ GEO FILTERING (only if lat/lon already injected)
+            // geo filter
             let matchesGeo = true;
 
             if (

@@ -15,9 +15,7 @@
     const radiusOptions = [5, 10, 25, 50, 100];
     let selectedRadius = 25;
 
-    /* ---------------------------------------------------
-       CLOSE + APPLY
-    --------------------------------------------------- */
+    /** Close Modal */
     function closeModal() {
         mapOpen.set(false);
     }
@@ -37,9 +35,7 @@
         closeModal();
     }
 
-    /* ---------------------------------------------------
-       UPDATE CIRCLE
-    --------------------------------------------------- */
+    /* Update circle */
     function updateCircle() {
         if (!map || !marker || !L) return;
 
@@ -48,7 +44,7 @@
         // Remove old circle
         if (circle) circle.remove();
 
-        // Convert miles → meters
+        // Convert miles to meters
         const meters = selectedRadius * 1609.34;
 
         circle = L.circle(pos, {
@@ -65,9 +61,7 @@
         updateCircle();
     }
 
-    /* ---------------------------------------------------
-       INIT MAP ON OPEN
-    --------------------------------------------------- */
+    /* Initialize map on open */
     onMount(async () => {
         await tick();
 
@@ -82,13 +76,12 @@
             const leaflet = await import("leaflet");
             L = leaflet.default;
 
-            // Inject Leaflet CSS
+            // Leaflet CSS
             const link = document.createElement("link");
             link.rel = "stylesheet";
             link.href = "https://unpkg.com/leaflet/dist/leaflet.css";
             document.head.appendChild(link);
 
-            // Reset container
             mapBox.innerHTML = "";
             mapBox.style.height = "260px";
 
@@ -134,7 +127,7 @@
                     class:selected={selectedRadius === r}
                     on:click={() => {
                         selectedRadius = r;
-                        safeUpdateCircle();   // immediate radius update
+                        safeUpdateCircle();   // radius update
                     }}
                 >
                     {r} miles
@@ -152,7 +145,7 @@
 
 
 <style>
-/* FULL BLUR OVERLAY */
+/* Blur overlay */
 .overlay {
     position: fixed;
     inset: 0;
@@ -164,7 +157,7 @@
     z-index: 9999;
 }
 
-/* MODAL */
+
 .modal {
     width: 420px;
     max-width: calc(100% - 2rem);
@@ -178,7 +171,7 @@
     z-index: 10000;
 }
 
-/* MAP CONTAINER */
+/* Map container */
 .map {
     width: 100%;
     height: 260px;
@@ -187,7 +180,6 @@
     background: #ddd;
 }
 
-/* RADIUS PILLS */
 .radius-options {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
@@ -217,7 +209,6 @@ button.selected {
     box-shadow: 0 4px 12px rgba(124,58,237,0.25);
 }
 
-/* APPLY BUTTON */
 .apply {
     width: 100%;
     margin-top: 0.3rem;

@@ -52,7 +52,7 @@
 
     display: flex;
     flex-direction: column;
-    gap: 1.5rem; /* gap is now ONLY between groups */
+    gap: 1.5rem;
 }
 
 /* Hide panel when closed */
@@ -60,11 +60,10 @@
     transform: translateX(360px);
 }
 
-/* Both sections are grouped, so NO gap inside them */
 .section {
     display: flex;
     flex-direction: column;
-    gap: 1rem; /* inner spacing */
+    gap: 1rem;
 }
 
 .section-advanced {
@@ -87,7 +86,6 @@
     color: #374151;
 }
 
-/* form fields */
 .field {
     display: flex;
     flex-direction: column;
@@ -134,7 +132,7 @@ select:focus {
     margin: 0;
 }
 
-/* bottom padding ONLY under advanced filters */
+/* bottom padding only under advanced filters */
 .advanced-spacer {
     height: 80px;
     width: 100%;
@@ -145,7 +143,7 @@ select:focus {
     margin-bottom: -0.5rem;
 
     background: linear-gradient(135deg,
-        #ef4444 0%,     /* red */
+        #ef4444 0%,
         #dc2626 100%
     );
 
@@ -182,7 +180,7 @@ select:focus {
     <button class="clearBtn" on:click={clearAll}>Clear Filters</button>
 
 
-    <!-- ⭐ NORMAL FILTERS grouped together (NO gap above/below) -->
+    <!-- Normal Filters -->
     <div class="section">
         <h2>Filters</h2>
 
@@ -233,7 +231,7 @@ select:focus {
     <div class="divider"></div>
 
 
-    <!-- ADVANCED FILTERS grouped together -->
+    <!-- Advanced Filters -->
     <div class="section-advanced">
         <h3>Advanced Filters</h3>
 

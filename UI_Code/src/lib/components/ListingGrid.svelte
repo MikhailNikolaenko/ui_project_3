@@ -54,7 +54,7 @@
 
     font-size: 2rem;
     font-weight: 700;
-    line-height: 0; /* makes the + centered nicely */
+    line-height: 0;
 
     display: flex;
     justify-content: center;

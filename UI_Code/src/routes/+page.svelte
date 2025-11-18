@@ -1,8 +1,7 @@
 <script context="module">
-    // GLOBAL store accessible to all components
+    // global store accessible to all components
     import { writable } from "svelte/store";
 
-    // Must be exported from MODULE script
     export const mapOpen = writable(false);
 </script>
 
@@ -22,7 +21,7 @@
     grid-template-columns: auto 1fr;
 }
 
-/* FILTER BUTTON */
+/* Filter button */
 .filterButton {
     position: fixed;
     top: 24px;
@@ -66,10 +65,10 @@
 }
 </style>
 
-<!-- TOP BAR -->
+<!-- Top Bar -->
 <TopBar />
 
-<!-- FILTERS BUTTON -->
+<!-- Filters -->
 <button
     class="filterButton {filtersOpen ? 'shifted' : ''}"
     on:click={() => (filtersOpen = !filtersOpen)}
@@ -77,13 +76,13 @@
     {filtersOpen ? "Close" : "Filters"}
 </button>
 
-<!-- SIDE FILTER PANEL -->
+<!-- Side Filters -->
 <SideFiltersRight {filtersOpen} open={filtersOpen} />
 
 <div class="page">
     <CategoryList />
     <ListingGrid />
 
-    <!-- GLOBAL MAP MODAL (uses global mapOpen) -->
+    <!-- Map Modal -->
     <MapFilterModal />
 </div>

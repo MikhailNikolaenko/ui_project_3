@@ -20,7 +20,7 @@
             marker = L.marker([lat, lng]).addTo(map);
         }
 
-        // EXAMPLE default marker
+        // default marker
         updateMarker(39.1031, -84.5120);
     });
 </script>
@@ -28,7 +28,7 @@
 <style>
 .map-container {
     width: 100%;
-    height: 280px; /* adjust as needed */
+    height: 280px;
     border-radius: 12px;
     overflow: hidden;
 }

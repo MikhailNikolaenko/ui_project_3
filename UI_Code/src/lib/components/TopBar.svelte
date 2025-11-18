@@ -84,7 +84,6 @@
     border: 1px solid #ccc;
 }
 
-/* Map filter button should NOT get stuck */
 button.select:focus,
 button.select:active {
     background: white !important;

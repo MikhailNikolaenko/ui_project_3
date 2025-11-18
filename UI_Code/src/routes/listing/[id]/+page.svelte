@@ -11,10 +11,10 @@
 
     <a class="back-link" href="/">← Back to listings</a>
 
-    <!-- SIDE-BY-SIDE ROW -->
+    <!-- side by side -->
     <div class="content-row">
 
-        <!-- LEFT — IMAGE -->
+        <!-- left side image -->
         <div class="hero-card">
             {#if item.img}
                 <img class="hero-img" src={item.img} alt={item.title} />
@@ -23,7 +23,7 @@
             {/if}
         </div>
 
-        <!-- RIGHT — DETAILS -->
+        <!-- right side details -->
         <div class="info-panel">
 
             <h1 class="title">{item.title}</h1>
@@ -79,9 +79,8 @@
 }
 
 
-/* ---------------------------- */
-/* FULL PAGE OVERLAY BLUR */
-/* ---------------------------- */
+/* Detail page styles */
+
 .detail-page {
     position: fixed;
     inset: 0;
@@ -107,9 +106,7 @@
 }
 
 
-/* ---------------------------- */
-/* TOP BACK LINK */
-/* ---------------------------- */
+/* Back link */
 .back-link {
     text-decoration: none;
     font-size: 1.5rem;
@@ -119,9 +116,7 @@
 }
 
 
-/* ---------------------------- */
-/* SIDE-BY-SIDE LAYOUT */
-/* ---------------------------- */
+/* Content row */
 .content-row {
     display: flex;
     gap: 1.5rem;
@@ -129,7 +124,7 @@
     max-width: 1100px;
 }
 
-/* MOBILE fallback */
+/* Responsive stack */
 @media (max-width: 800px) {
     .content-row {
         flex-direction: column;
@@ -137,9 +132,7 @@
 }
 
 
-/* ---------------------------- */
-/* IMAGE CARD */
-/* ---------------------------- */
+/* image cards */
 .hero-card {
     flex: 1;
     max-width: 50%;
@@ -163,9 +156,7 @@
 }
 
 
-/* ---------------------------- */
-/* RIGHT PANEL */
-/* ---------------------------- */
+/* info panel */
 .info-panel {
     flex: 1;
     background: #ffffff;
